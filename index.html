@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CosmoFit — Propuesta Creativa Meta Ads</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #090909;
+    --dark: #111111;
+    --card: #181818;
+    --border: #252525;
+    --gold: #F5C000;
+    --gold-dim: #C49800;
+    --white: #F4F2EE;
+    --muted: #888888;
+    --light: #CCCCCC;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px;
+    background: var(--black);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: 'COSMOFIT';
+    position: absolute;
+    font-family: var(--font-display);
+    font-size: 28vw;
+    color: #161616;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    letter-spacing: -2px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .cover-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-text {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  .badge {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 2px;
+  }
+
+  .cover-main {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cover-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .cover-title {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 48px;
+  }
+
+  .cover-title span { color: var(--gold); }
+
+  .cover-meta {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 0;
+    width: fit-content;
+    border: 1px solid var(--border);
+  }
+
+  .cover-meta-item {
+    padding: 20px 32px;
+    border-right: 1px solid var(--border);
+  }
+
+  .cover-meta-item:last-child { border-right: none; }
+
+  .cover-meta-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .cover-meta-value {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--white);
+  }
+
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-desc {
+    font-size: 13px;
+    color: var(--muted);
+    max-width: 400px;
+    line-height: 1.6;
+  }
+
+  .confidential {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--border);
+  }
+
+  /* ── PAGE LAYOUT ── */
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 60px;
+  }
+
+  .page + .page {
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: 48px;
+    letter-spacing: 2px;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 40px;
+  }
+
+  .section-title .num {
+    color: var(--gold);
+    font-size: 18px;
+    vertical-align: super;
+    margin-right: 4px;
+  }
+
+  /* ── FICHA ── */
+  .ficha-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 60px;
+  }
+
+  .ficha-item {
+    background: var(--card);
+    padding: 20px 24px;
+  }
+
+  .ficha-key {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .ficha-val {
+    font-size: 14px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .ficha-val.highlight { color: var(--gold); font-weight: 500; }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    border-left: 2px solid var(--gold);
+    background: var(--card);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+  }
+
+  .info-box p {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+
+  .info-box p:last-child { margin-bottom: 0; }
+
+  .info-box .dot {
+    color: var(--gold);
+    margin-right: 8px;
+  }
+
+  /* ── VIDEO HEADER ── */
+  .video-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .video-number {
+    font-family: var(--font-display);
+    font-size: 96px;
+    line-height: 1;
+    color: #1E1E1E;
+    flex-shrink: 0;
+  }
+
+  .video-header-content { flex: 1; }
+
+  .video-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .video-title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    letter-spacing: 1px;
+    color: var(--white);
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+
+  .video-meta-row {
+    display: flex;
+    gap: 24px;
+  }
+
+  .video-meta-pill {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .video-meta-pill span { color: var(--light); }
+
+  /* ── IDEA ── */
+  .idea-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 28px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .idea-block::before {
+    content: 'IDEA CENTRAL';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--card);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--gold);
+    padding: 0 8px;
+  }
+
+  .idea-block p {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.8;
+  }
+
+  /* ── SCRIPT TABLE ── */
+  .script-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .script-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    font-size: 13px;
+  }
+
+  .script-table thead tr {
+    background: var(--gold);
+  }
+
+  .script-table thead th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  .script-table tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .script-table tbody tr:nth-child(even) {
+    background: #141414;
+  }
+
+  .script-table tbody td {
+    padding: 14px 16px;
+    vertical-align: top;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .script-table tbody td:first-child {
+    color: var(--gold);
+    font-weight: 500;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .script-table .tag-cam {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--gold);
+    background: rgba(245,192,0,0.08);
+    border: 1px solid rgba(245,192,0,0.2);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+
+  .script-table .tag-seq {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 6px;
+  }
+
+  .screen-text { color: var(--white); font-weight: 500; }
+  .dialogue { color: var(--muted); font-style: italic; }
+
+  /* ── TONO ── */
+  .tono-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .tono-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .tono-bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .tono-text {
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  /* ── COPY BOX ── */
+  .copy-block {
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+
+  .copy-header {
+    background: var(--card);
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .copy-body {
+    padding: 24px;
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.9;
+    white-space: pre-line;
+  }
+
+  /* ── META COPY ── */
+  .meta-copy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 60px;
+  }
+
+  .meta-copy-item {
+    background: var(--card);
+    padding: 20px 24px;
+  }
+
+  .meta-copy-key {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .meta-copy-val {
+    font-size: 15px;
+    color: var(--white);
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .meta-copy-chars {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── JERARQUÍA ── */
+  .jerarquia {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .jerarquia-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+  }
+
+  .jerarquia-num {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 32px;
+  }
+
+  .jerarquia-text {
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  .jerarquia-label {
+    font-weight: 500;
+    color: var(--white);
+  }
+
+  /* ── NOTAS ── */
+  .notas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .nota-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 24px;
+  }
+
+  .nota-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nota-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .nota-item::before {
+    content: '→';
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── SPECS ── */
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .specs-table thead tr { background: var(--gold); }
+
+  .specs-table thead th {
+    padding: 12px 20px;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  .specs-table tbody tr { border-bottom: 1px solid var(--border); }
+  .specs-table tbody tr:nth-child(even) { background: #141414; }
+
+  .specs-table tbody td {
+    padding: 14px 20px;
+    font-size: 14px;
+    color: var(--light);
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo { font-family: var(--font-display); font-size: 18px; letter-spacing: 3px; color: var(--gold); }
+  .footer-note { font-size: 12px; color: var(--muted); }
+
+  /* ── TABLE SCROLL WRAPPER ── */
+  .table-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 40px;
+  }
+  .table-scroll .script-table,
+  .table-scroll .specs-table { margin-bottom: 0; min-width: 600px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 680px) {
+    .cover { padding: 32px 24px; min-height: auto; }
+    .cover::before { font-size: 48vw; }
+    .cover-title { font-size: 52px; margin-bottom: 28px; }
+    .cover-meta { grid-template-columns: 1fr; width: 100%; }
+    .cover-meta-item { border-right: none; border-bottom: 1px solid var(--border); padding: 14px 18px; }
+    .cover-meta-item:last-child { border-bottom: none; }
+    .cover-bottom { flex-direction: column; gap: 16px; align-items: flex-start; }
+    .page { padding: 48px 24px; }
+    .section-title { font-size: 32px; }
+    .ficha-grid { grid-template-columns: 1fr; }
+    .video-header { flex-direction: column; gap: 12px; }
+    .video-number { font-size: 56px; }
+    .video-title { font-size: 26px; }
+    .tono-grid { grid-template-columns: 1fr; }
+    .notas-grid { grid-template-columns: 1fr; }
+    .meta-copy-grid { grid-template-columns: 1fr; }
+    .doc-footer { flex-direction: column; gap: 12px; padding: 28px 24px; }
+
+    /* Script table → card layout */
+    .script-table { display: block; }
+    .script-table thead { display: none; }
+    .script-table tbody { display: block; }
+    .script-table tbody tr {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .script-table tbody tr:nth-child(even) { background: var(--card); }
+    .script-table tbody td {
+      display: block;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .script-table tbody td:last-child { border-bottom: none; }
+    .script-table tbody td:first-child {
+      background: rgba(245,192,0,0.06);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .script-table tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .script-table tbody td:first-child::before { display: none; }
+
+    /* Specs table → horizontal scroll */
+    .table-scroll .specs-table { min-width: 480px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="logo-text">COSMOFIT</div>
+    <div class="badge">Documento Confidencial</div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Propuesta Creativa</div>
+    <div class="cover-title">META<br><span>ADS</span><br>VÍDEOS</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Plataforma</div>
+        <div class="cover-meta-value">Meta Ads</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Objetivo</div>
+        <div class="cover-meta-value">Leads · Reservas</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">Vídeos</div>
+        <div class="cover-meta-value">2 guiones</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-desc">Guiones de vídeo para campaña de captación de leads con formato entrenador a cámara + secuencias intercaladas.</div>
+    <div class="confidential">Uso interno · CosmoFit</div>
+  </div>
+</div>
+
+<!-- ══ FICHA DEL PROYECTO ══════════════════════════════ -->
+<div class="page">
+  <div class="section-label">01 — Proyecto</div>
+  <div class="section-title">Ficha del Proyecto</div>
+
+  <div class="ficha-grid">
+    <div class="ficha-item">
+      <div class="ficha-key">Formato</div>
+      <div class="ficha-val">Entrenador a cámara + secuencias intercaladas</div>
+    </div>
+    <div class="ficha-item">
+      <div class="ficha-key">Plataforma</div>
+      <div class="ficha-val">Meta Ads (Facebook · Instagram)</div>
+    </div>
+    <div class="ficha-item">
+      <div class="ficha-key">Objetivo</div>
+      <div class="ficha-val">Leads / Reservas directas</div>
+    </div>
+    <div class="ficha-item">
+      <div class="ficha-key">Oferta</div>
+      <div class="ficha-val highlight">Paga 2 meses → llévate 3 + matrícula gratis</div>
+    </div>
+    <div class="ficha-item">
+      <div class="ficha-key">Precio</div>
+      <div class="ficha-val highlight">Desde 33€/mes</div>
+    </div>
+    <div class="ficha-item">
+      <div class="ficha-key">Ratio</div>
+      <div class="ficha-val">9:16 Reels/Stories · 1:1 Feed</div>
+    </div>
+  </div>
+
+  <div class="section-label">02 — Producción</div>
+  <div class="section-title">Nota de Formato</div>
+
+  <div class="info-box">
+    <p><span class="dot">◆</span>El entrenador habla directamente a cámara en todo momento — tono cercano, natural, sin teleprompter.</p>
+    <p><span class="dot">◆</span>Las secuencias intercaladas refuerzan visualmente el mensaje, pero el entrenador es siempre el hilo conductor.</p>
+    <p><span class="dot">◆</span>Subtítulos obligatorios en todos los vídeos. El 85% de usuarios en Meta ve vídeos sin audio.</p>
+    <p><span class="dot">◆</span>Plano medio o medio-corto, fondo de las instalaciones reales de CosmoFit.</p>
+    <p><span class="dot">◆</span>Luz natural o suave cálida — evitar look de estudio artificial.</p>
+  </div>
+</div>
+
+<!-- ══ VÍDEO 1 ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="video-header">
+    <div class="video-number">01</div>
+    <div class="video-header-content">
+      <div class="video-tag">▶ Audiencia fría · 25–30 seg</div>
+      <div class="video-title">"No todos los gimnasios son iguales"</div>
+      <div class="video-meta-row">
+        <div class="video-meta-pill">Ángulo: <span>Precio + oferta como entrada a algo premium</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="idea-block">
+    <p>El entrenador desmonta el prejuicio de que un buen gimnasio está fuera del presupuesto. Las instalaciones son el protagonista — el precio aparece al final como remate, no como gancho. Esto reposiciona CosmoFit como centro premium con una oferta puntual, no como descuento.</p>
+  </div>
+
+  <div class="script-label">Guión</div>
+  <table class="script-table">
+    <thead>
+      <tr>
+        <th>Tiempo</th>
+        <th>Plano</th>
+        <th>Texto en pantalla</th>
+        <th>Diálogo del entrenador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0–3 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span><br>Plano medio. Fondo instalaciones CosmoFit.</td>
+        <td data-label="Texto en pantalla" class="screen-text">"¿Crees que un gimnasio así está fuera de tu presupuesto?"</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"¿Crees que un gimnasio así está fuera de tu presupuesto?"</td>
+      </tr>
+      <tr>
+        <td>3–6 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Instalaciones: máquinas nuevas, espacios amplios, luz cuidada.</td>
+        <td data-label="Texto en pantalla">—</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>6–9 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span></td>
+        <td data-label="Texto en pantalla" class="screen-text">"Pues la excusa del precio desaparece."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"Pues la excusa del precio desaparece."</td>
+      </tr>
+      <tr>
+        <td>9–13 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Entrenador con cliente. Vestuarios boutique. Clases grupales.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Atención personalizada.<br>Instalaciones de primer nivel.<br>Clases grupales disponibles.</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>13–18 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span></td>
+        <td data-label="Texto en pantalla" class="screen-text">"En CosmoFit entras sin matrícula, y el tercer mes te lo regalamos nosotros."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"En CosmoFit entras sin matrícula… y el tercer mes te lo regalamos nosotros."</td>
+      </tr>
+      <tr>
+        <td>18–22 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Animación oferta sobre fondo de marca.</td>
+        <td data-label="Texto en pantalla" class="screen-text">✅ Matrícula gratis<br>✅ 1 mes de regalo<br>✅ Desde 33€/mes</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>22–27 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span><br>Sonríe, directo.</td>
+        <td data-label="Texto en pantalla" class="screen-text">"Plazas limitadas. Reserva ahora."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"Plazas limitadas. Si estás pensándolo, este es el momento. Reserva ahora."</td>
+      </tr>
+      <tr>
+        <td>27–30 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ CIERRE</span><br>Logo CosmoFit + CTA animado.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Reserva tu plaza →</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="script-label">Guía de Tono — Entrenador</div>
+  <div class="tono-grid">
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">Hablar como si le dijera algo a un amigo, no haciendo publicidad.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">Sin formalidad. Sin guión memorizado. Natural y directo.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">La frase de apertura: mirada fija a cámara con pausa antes de continuar.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">Al final, sonrisa real — transmite que la oferta es buena.</div></div>
+  </div>
+
+  <div class="copy-block">
+    <div class="copy-header">Post Copy</div>
+    <div class="copy-body">¿Crees que un gimnasio así está fuera de tu presupuesto? 🏛️
+
+En CosmoFit la excusa desaparece.
+
+✅ Sin matrícula
+✅ 1 mes de regalo
+✅ Atención personalizada desde el primer día
+✅ Instalaciones de primer nivel
+✅ Desde 33€/mes
+
+Plazas limitadas. No lo dejes para mañana.
+👉 Reserva en el link de bio.</div>
+  </div>
+
+  <div class="meta-copy-grid">
+    <div class="meta-copy-item">
+      <div class="meta-copy-key">Headline</div>
+      <div class="meta-copy-val">Un gym diferente. Una oferta única.</div>
+      <div class="meta-copy-chars">35 caracteres</div>
+    </div>
+    <div class="meta-copy-item">
+      <div class="meta-copy-key">Description</div>
+      <div class="meta-copy-val">Plazas limitadas. Reserva ya.</div>
+      <div class="meta-copy-chars">28 caracteres</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VÍDEO 2 ═══════════════════════════════════════════ -->
+<div class="page">
+  <div class="video-header">
+    <div class="video-number">02</div>
+    <div class="video-header-content">
+      <div class="video-tag">▶ Audiencia fría y tibia · 28–33 seg</div>
+      <div class="video-title">"Este verano, la mejor versión de ti"</div>
+      <div class="video-meta-row">
+        <div class="video-meta-pill">Ángulo: <span>Transformación · Verano · Atención personalizada · Comunidad</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="idea-block">
+    <p>La transformación es el protagonista — tú y tu mejor versión para el verano. La atención personalizada del equipo y la comunidad aparecen como el entorno que lo hace posible, no como el mensaje principal. La oferta cierra como habilitador: ahora no tienes excusa para no empezar.</p>
+  </div>
+
+  <div class="script-label">Jerarquía Visual</div>
+  <div class="jerarquia">
+    <div class="jerarquia-item">
+      <div class="jerarquia-num">1</div>
+      <div class="jerarquia-text"><span class="jerarquia-label">Protagonista:</span> la persona y su transformación</div>
+    </div>
+    <div class="jerarquia-item">
+      <div class="jerarquia-num">2</div>
+      <div class="jerarquia-text"><span class="jerarquia-label">Soporte:</span> el equipo y la atención personalizada</div>
+    </div>
+    <div class="jerarquia-item">
+      <div class="jerarquia-num">3</div>
+      <div class="jerarquia-text"><span class="jerarquia-label">Contexto:</span> la comunidad como ambiente motivador</div>
+    </div>
+    <div class="jerarquia-item">
+      <div class="jerarquia-num">4</div>
+      <div class="jerarquia-text"><span class="jerarquia-label">Entorno:</span> las instalaciones, referenciadas al final</div>
+    </div>
+  </div>
+
+  <div class="script-label">Guión</div>
+  <table class="script-table">
+    <thead>
+      <tr>
+        <th>Tiempo</th>
+        <th>Plano</th>
+        <th>Texto en pantalla</th>
+        <th>Diálogo del entrenador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>0–3 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span><br>Plano cercano, directo.</td>
+        <td data-label="Texto en pantalla" class="screen-text">"¿Quieres llegar al verano sintiéndote bien de verdad?"</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"¿Quieres llegar al verano sintiéndote bien de verdad?"</td>
+      </tr>
+      <tr>
+        <td>3–7 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Persona entrenando, esfuerzo real, progreso visible.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Más fuerte. Más sano. Mejor que ayer.</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>7–12 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span></td>
+        <td data-label="Texto en pantalla" class="screen-text">"Aquí no vienes a hacer lo que puedas. Vienes a hacer lo que necesitas."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"Aquí no vienes a hacer lo que puedas. Vienes a hacer lo que necesitas. Porque desde el primer día trabajamos contigo, no para ti."</td>
+      </tr>
+      <tr>
+        <td>12–16 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Entrenador corrigiendo postura, trato personalizado.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Tu plan. Tu ritmo. Tu equipo.</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>16–19 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Clase grupal con energía, compañeros animándose.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Y una comunidad que te empuja.</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>19–23 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span><br>Tono distendido, casi cómplice.</td>
+        <td data-label="Texto en pantalla" class="screen-text">"Y ahora, entrar en CosmoFit nunca fue tan fácil."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"Y ahora, entrar en CosmoFit nunca fue tan fácil."</td>
+      </tr>
+      <tr>
+        <td>23–27 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ SECUENCIA</span><br>Animación oferta sobre fondo de marca.</td>
+        <td data-label="Texto en pantalla" class="screen-text">✅ Matrícula gratis<br>✅ 1 mes de regalo<br>✅ Desde 33€/mes</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+      <tr>
+        <td>27–31 s</td>
+        <td data-label="Plano"><span class="tag-cam">🎥 CÁMARA</span><br>Cierre con energía y convicción.</td>
+        <td data-label="Texto en pantalla" class="screen-text">"Tu mejor verano empieza hoy. Reserva tu plaza."</td>
+        <td data-label="Diálogo del entrenador" class="dialogue">"Tu mejor verano empieza hoy. Te esperamos."</td>
+      </tr>
+      <tr>
+        <td>31–33 s</td>
+        <td data-label="Plano"><span class="tag-seq">✂ CIERRE</span><br>Logo CosmoFit + CTA animado.</td>
+        <td data-label="Texto en pantalla" class="screen-text">Reserva tu plaza →</td>
+        <td data-label="Diálogo del entrenador">—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="script-label">Guía de Tono — Entrenador</div>
+  <div class="tono-grid">
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">La frase de apertura es una pregunta sincera, no un gancho de venta.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">"No vienes a hacer lo que puedas" — bajar ritmo, mirada fija a cámara.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">El cierre tiene que sonar como invitación genuina, no como CTA de anuncio.</div></div>
+    <div class="tono-item"><div class="tono-bullet"></div><div class="tono-text">Si sonríe al decir "te esperamos" — perfecto.</div></div>
+  </div>
+
+  <div class="copy-block">
+    <div class="copy-header">Post Copy</div>
+    <div class="copy-body">¿Quieres llegar al verano sintiéndote bien de verdad? ☀️
+
+No hablo solo de cómo te ves.
+Hablo de energía. De salud. De mirarte y reconocerte.
+
+En CosmoFit no entrenas solo. Desde el primer día tienes un plan pensado para ti, un equipo que te acompaña y una comunidad que te empuja cuando más lo necesitas.
+
+Y ahora, entrar nunca fue tan fácil:
+✅ Matrícula gratis
+✅ 1 mes de regalo
+✅ Desde 33€/mes
+
+Plazas limitadas.
+👉 Tu mejor verano empieza en el link de bio.</div>
+  </div>
+
+  <div class="meta-copy-grid">
+    <div class="meta-copy-item">
+      <div class="meta-copy-key">Headline</div>
+      <div class="meta-copy-val">Tu mejor verano empieza aquí</div>
+      <div class="meta-copy-chars">29 caracteres</div>
+    </div>
+    <div class="meta-copy-item">
+      <div class="meta-copy-key">Description</div>
+      <div class="meta-copy-val">Plazas limitadas. Reserva ya.</div>
+      <div class="meta-copy-chars">28 caracteres</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NOTAS DE PRODUCCIÓN ════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">03 — Producción</div>
+  <div class="section-title">Notas de Producción</div>
+
+  <div class="notas-grid">
+    <div class="nota-card">
+      <div class="nota-title">Cámara y Luz</div>
+      <div class="nota-item">Plano medio o medio-corto (cintura/pecho para arriba).</div>
+      <div class="nota-item">Fondo: instalaciones reales de CosmoFit — refuerza el mensaje sin decir nada.</div>
+      <div class="nota-item">Luz natural o suave cálida. Evitar look de estudio artificial.</div>
+      <div class="nota-item">El entrenador mira directo a cámara en todo momento.</div>
+    </div>
+
+    <div class="nota-card">
+      <div class="nota-title">Secuencias</div>
+      <div class="nota-item">Duración por secuencia: 2–4 segundos.</div>
+      <div class="nota-item">Grabadas en las instalaciones reales — la autenticidad supera cualquier producción perfecta.</div>
+      <div class="nota-item">Planos: máquinas, clases en movimiento, interacción entrenador-cliente, detalles boutique, clases grupales.</div>
+    </div>
+
+    <div class="nota-card">
+      <div class="nota-title">Música</div>
+      <div class="nota-item"><strong style="color:var(--white)">Vídeo 1:</strong> Silencio los primeros 3 segundos → entrada suave instrumental que sube con la oferta.</div>
+      <div class="nota-item"><strong style="color:var(--white)">Vídeo 2:</strong> Emocional y progresiva desde el inicio. Evitar música agresiva de gym.</div>
+    </div>
+
+    <div class="nota-card">
+      <div class="nota-title">Casting</div>
+      <div class="nota-item">Vídeo 1: El entrenador como único protagonista. Tono de autoridad cercana.</div>
+      <div class="nota-item">Vídeo 2: Una persona protagonista en su transformación — real y relatable, no un atleta perfecto.</div>
+      <div class="nota-item">Diversidad de perfiles en secuencias. Que el espectador se vea reflejado.</div>
+    </div>
+  </div>
+
+  <div class="section-label">04 — Formatos</div>
+  <div class="section-title">Especificaciones Técnicas</div>
+
+  <div class="table-scroll"><table class="specs-table">
+    <thead>
+      <tr>
+        <th>Formato</th>
+        <th>Resolución</th>
+        <th>Duración</th>
+        <th>Ratio</th>
+        <th>Subtítulos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Reels / Stories</td>
+        <td>1080 × 1920 px</td>
+        <td>25–35 seg</td>
+        <td>9:16</td>
+        <td>Obligatorios</td>
+      </tr>
+      <tr>
+        <td>Feed cuadrado</td>
+        <td>1080 × 1080 px</td>
+        <td>25–35 seg</td>
+        <td>1:1</td>
+        <td>Obligatorios</td>
+      </tr>
+    </tbody>
+  </table>
+</div></div>
+
+<!-- ══ FOOTER ════════════════════════════════════════════ -->
+<div class="doc-footer">
+  <div class="footer-logo">COSMOFIT</div>
+  <div class="footer-note">Propuesta Creativa · Meta Ads · Uso confidencial</div>
+</div>
+
+</body>
+</html>
